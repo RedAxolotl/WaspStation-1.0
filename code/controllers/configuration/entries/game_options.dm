@@ -395,6 +395,14 @@
 	config_entry_value = 1000
 	min_val = 0
 
+//Shuttle size limiter
+/datum/config_entry/number/max_shuttle_count
+	config_entry_value = 6
+
+/datum/config_entry/number/max_shuttle_size
+	config_entry_value = 250
+
+/datum/config_entry/flag/restricted_suicide
 /datum/config_entry/flag/dynamic_config_enabled
 
 /datum/config_entry/flag/allow_crew_objectives

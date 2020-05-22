@@ -1,5 +1,29 @@
 //Command
 
+/obj/item/circuitboard/computer/launchpad_console
+	name = "Launchpad Control Console (Computer Board)"
+	build_path = /obj/machinery/computer/launchpad
+
+/obj/item/circuitboard/computer/message_monitor
+	name = "Message Monitor (Computer Board)"
+	build_path = /obj/machinery/computer/message_monitor
+
+/obj/item/circuitboard/computer/security
+	name = "Security Cameras (Computer Board)"
+	build_path = /obj/machinery/computer/security
+
+/obj/item/circuitboard/computer/advanced_camera
+	name = "Advanced Camera Console (Computer Board)"
+	build_path = /obj/machinery/computer/camera_advanced/syndie
+
+/obj/item/circuitboard/computer/xenobiology
+	name = "circuit board (Xenobiology Console)"
+	build_path = /obj/machinery/computer/camera_advanced/xenobio
+
+/obj/item/circuitboard/computer/base_construction
+	name = "circuit board (Aux Mining Base Construction Console)"
+	build_path = /obj/machinery/computer/camera_advanced/base_construction
+
 /obj/item/circuitboard/computer/aiupload
 	name = "AI Upload (Computer Board)"
 	icon_state = "command"
@@ -487,3 +511,90 @@
 /obj/item/circuitboard/computer/mining_shuttle/common
 	name = "Lavaland Shuttle (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/mining/common
+
+/obj/item/circuitboard/computer/white_ship/pod
+	name = "Salvage Pod (Computer Board)"
+	build_path = /obj/machinery/computer/shuttle/white_ship/pod
+
+/obj/item/circuitboard/computer/white_ship/pod/recall
+	name = "Salvage Pod Recall (Computer Board)"
+	build_path = /obj/machinery/computer/shuttle/white_ship/pod/recall
+
+/obj/item/circuitboard/computer/auxillary_base
+	name = "Auxillary Base Management Console (Computer Board)"
+	build_path = /obj/machinery/computer/auxillary_base
+
+/obj/item/circuitboard/computer/holodeck// Not going to let people get this, but it's just here for future
+	name = "Holodeck Control (Computer Board)"
+	build_path = /obj/machinery/computer/holodeck
+
+/obj/item/circuitboard/computer/aifixer
+	name = "AI Integrity Restorer (Computer Board)"
+	build_path = /obj/machinery/computer/aifixer
+
+/obj/item/circuitboard/computer/slot_machine
+	name = "Slot Machine (Computer Board)"
+	build_path = /obj/machinery/computer/slot_machine
+
+/obj/item/circuitboard/computer/libraryconsole
+	name = "Library Visitor Console (Computer Board)"
+	build_path = /obj/machinery/computer/libraryconsole
+
+/obj/item/circuitboard/computer/libraryconsole/attackby(obj/item/I, mob/user, params)
+	if(I.tool_behaviour == TOOL_SCREWDRIVER)
+		if(build_path == /obj/machinery/computer/libraryconsole/bookmanagement)
+			name = "Library Visitor Console (Computer Board)"
+			build_path = /obj/machinery/computer/libraryconsole
+			to_chat(user, "<span class='notice'>Defaulting access protocols.</span>")
+		else
+			name = "Book Inventory Management Console (Computer Board)"
+			build_path = /obj/machinery/computer/libraryconsole/bookmanagement
+			to_chat(user, "<span class='notice'>Access protocols successfully updated.</span>")
+	else
+		return ..()
+
+/obj/item/circuitboard/computer/apc_control
+	name = "\improper Power Flow Control Console (Computer Board)"
+	build_path = /obj/machinery/computer/apc_control
+
+/obj/item/circuitboard/computer/monastery_shuttle
+	name = "Monastery Shuttle (Computer Board)"
+	build_path = /obj/machinery/computer/shuttle/monastery_shuttle
+
+/obj/item/circuitboard/computer/syndicate_shuttle
+	name = "Syndicate Shuttle (Computer Board)"
+	build_path = /obj/machinery/computer/shuttle/syndicate
+	var/challenge = FALSE
+	var/moved = FALSE
+
+/obj/item/circuitboard/computer/syndicate_shuttle/Initialize()
+	. = ..()
+	GLOB.syndicate_shuttle_boards += src
+
+/obj/item/circuitboard/computer/syndicate_shuttle/Destroy()
+	GLOB.syndicate_shuttle_boards -= src
+	return ..()
+
+/obj/item/circuitboard/computer/bsa_control
+	name = "Bluespace Artillery Controls (Computer Board)"
+	build_path = /obj/machinery/computer/bsa_control
+
+/obj/item/circuitboard/computer/sat_control
+	name = "Satellite Network Control (Computer Board)"
+	build_path = /obj/machinery/computer/sat_control
+
+/obj/item/circuitboard/computer/nanite_chamber_control
+	name = "Nanite Chamber Control (Computer Board)"
+	build_path = /obj/machinery/computer/nanite_chamber_control
+
+/obj/item/circuitboard/computer/nanite_cloud_controller
+	name = "Nanite Cloud Control (Computer Board)"
+	build_path = /obj/machinery/computer/nanite_cloud_controller
+
+/obj/item/circuitboard/computer/shuttle/flight_control
+	name = "Shuttle Flight Control (Computer Board)"
+	build_path = /obj/machinery/computer/custom_shuttle
+
+/obj/item/circuitboard/computer/shuttle/docker
+	name = "Shuttle Navigation Computer (Computer Board)"
+	build_path = /obj/machinery/computer/camera_advanced/shuttle_docker/custom
